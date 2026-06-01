@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دعوة زفاف الملكية | شيرين وبهاء & ألاء وسامي</title>
+  <meta name="description" content="نص تشريفي لدعوتكم لحضور حفل زفاف شيرين وبهاء & ألاء وسامي - تفاصيل الحفل والموقع الجغرافي" />
+  
+  <!-- SEO & Social Share Meta Tags -->
+  <meta property="og:title" content="دعوة زفاف الملكية | شيرين وبهاء & ألاء وسامي" />
+  <meta property="og:description" content="نشارككم فرحتنا الغالية وندعوكم لحضور حفل زفافنا السعيد" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Premium Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="locked">
+
+  <!-- LUXURIOUS WELCOME CURTAIN (Interactive Preloader) -->
+  <div class="welcome-curtain" id="welcomeCurtain">
+    <div class="curtain-panel left-panel"></div>
+    <div class="curtain-panel right-panel"></div>
+    <div class="curtain-content" id="curtainContent">
+      <div class="curtain-badge">✦ زفاف ملكي مزدوج ✦</div>
+      <div class="curtain-monogram">👑</div>
+      <h2 class="curtain-title">دعوة حضور حفل زفاف</h2>
+      <div class="curtain-couples">
+        <span class="curtain-couple">شيرين & بهاء</span>
+        <span class="curtain-connector">و</span>
+        <span class="curtain-couple">ألاء & سامي</span>
+      </div>
+      <div class="curtain-divider"></div>
+      <p class="curtain-invitation-verse">"تكتمل فرحتنا بوجودكم معنا في ليلتنا الكبرى"</p>
+      <button class="curtain-btn" onclick="enterInvitation()" aria-label="دخول الدعوة الملكية">
+        <span>تفضل بدخول الدعوة الملكية ✦</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Flower Petals Background -->
+  <div class="petals-container" id="petalsContainer"></div>
+
+  <!-- Audio Element -->
+  <audio id="weddingMusic" loop preload="auto" >
+    <source src="3_11_1440 عرض تشويقي.mp4" type="audio/mp4"/>
+  </audio>
+
+  <!-- Sticky Elegant Audio Control -->
+  <button class="music-toggle-btn" id="musicToggleBtn" onclick="toggleMusic()" aria-label="التحكم بالموسيقى">
+    <div class="disc-wrapper">
+      <span class="disc-icon">🎵</span>
+    </div>
+    <div class="music-waves">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <!-- Main Wrapper -->
+  <main class="main-wrapper">
+    
+    <!-- SECTION 1: THE HERO & TWO ENVELOPES (Full Viewport) -->
+    <section class="hero-envelope-section" id="heroSection">
+      
+      <div class="envelope-introduction animate-on-start" id="introText">
+        <span class="royal-badge">✦ زفاف ملكي مزدوج ✦</span>
+        <h1 class="shimmer-text">الدعوات الخاصة الفاخرة</h1>
+        <p class="tagline">انقر على الأختام الذهبية لفتح الرسائل الملكية والاطلاع على التفاصيل</p>
+      </div>
+
+      <!-- The 2 Envelopes Wrapper Container -->
+      <div class="envelopes-wrapper">
+
+        <!-- ENVELOPE 1: Sherine & Bahaa -->
+        <div class="envelope-column animate-on-start delay-env-1">
+          <div class="envelope-label-outer" id="envelopeLabel1">
+            <span class="label-initials">S &amp; B ✦</span>
+            <span class="label-fullname">شيرين وبهاء ✦</span>
+          </div>
+          <div class="envelope-container" id="envelopeContainer1" onclick="handleEnvelopeClick(1)">
+            <div class="envelope-3d" id="envelope3D-1">
+              
+              <!-- Back Panel -->
+              <div class="envelope-back-panel"></div>
+
+              <!-- Inside Card (Slides UP) -->
+              <div class="envelope-card-inner" id="invitationCardInner1">
+                <div class="card-content-gold-border">
+                  <div class="bismillah-calligraphy">بسم الله الرحمن الرحيم</div>
+                  <div class="royal-crown">👑</div>
+                  
+                  <div class="invitation-couples">
+                    <div class="couple-block">
+                      <span class="couple-title">العروسان</span>
+                      <h2 class="couple-names-gold">شيرين & بهاء</h2>
+                    </div>
+                  </div>
+
+                  <div class="card-ornament">❦ ✦ ❦</div>
+                  <div class="card-peek-message" id="cardPeekMessage1">
+                    <span class="instruction-blink">انقر للفتح 💍</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panels -->
+              <div class="envelope-left-panel"></div>
+              <div class="envelope-right-panel"></div>
+              <div class="envelope-bottom-panel"></div>
+              
+              <!-- Top Flap -->
+              <div class="envelope-top-flap" id="envelopeTopFlap1">
+                <div class="wax-seal-wrapper">
+                  <div class="wax-seal" id="waxSeal1">
+                    <span class="seal-logo">💍</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ENVELOPE 2: Alaa & Sami -->
+        <div class="envelope-column animate-on-start delay-env-2">
+          <div class="envelope-label-outer" id="envelopeLabel2">
+            <span class="label-initials">A &amp; S ✦</span>
+            <span class="label-fullname">ألاء وسامي ✦</span>
+          </div>
+          <div class="envelope-container" id="envelopeContainer2" onclick="handleEnvelopeClick(2)">
+            <div class="envelope-3d" id="envelope3D-2">
+              
+              <!-- Back Panel -->
+              <div class="envelope-back-panel"></div>
+
+              <!-- Inside Card (Slides UP) -->
+              <div class="envelope-card-inner" id="invitationCardInner2">
+                <div class="card-content-gold-border">
+                  <div class="bismillah-calligraphy">بسم الله الرحمن الرحيم</div>
+                  <div class="royal-crown">👑</div>
+                  
+                  <div class="invitation-couples">
+                    <div class="couple-block">
+                      <span class="couple-title">العروسان</span>
+                      <h2 class="couple-names-gold">ألاء & سامي</h2>
+                    </div>
+                  </div>
+
+                  <div class="card-ornament">❦ ✦ ❦</div>
+                  <div class="card-peek-message" id="cardPeekMessage2">
+                    <span class="instruction-blink">انقر للفتح 💍</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panels -->
+              <div class="envelope-left-panel"></div>
+              <div class="envelope-right-panel"></div>
+              <div class="envelope-bottom-panel"></div>
+              
+              <!-- Top Flap -->
+              <div class="envelope-top-flap" id="envelopeTopFlap2">
+                <div class="wax-seal-wrapper">
+                  <div class="wax-seal" id="waxSeal2">
+                    <span class="seal-logo">💍</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- General Tap indicator hint -->
+      <div class="tap-indicator" id="tapIndicator">
+        <span class="hand-icon">👆</span>
+        <span class="hint-text">افتح الرسائل الملكية</span>
+      </div>
+
+      <!-- Scroll down hint (Visible only after envelope is opened) -->
+      <div class="scroll-down-hint" id="scrollDownHint">
+        <span class="scroll-text">مرر للأسفل لمعرفة تفاصيل الزفاف السعيد</span>
+        <div class="gold-arrow-down">↓</div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: DETAILS SECTION (Visible after opening, scrolled into view) -->
+    <section class="wedding-details-section" id="detailsSection">
+      <div class="details-content-wrapper">
+        
+        <!-- Part A: The Quranic Verse -->
+        <div class="detail-card verse-card reveal-on-scroll">
+          <div class="verse-ornament">❦</div>
+          <blockquote class="quran-verse">
+            "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+          </blockquote>
+          <cite class="verse-author">سورة الروم - الآية 21</cite>
+          <div class="verse-ornament">❦</div>
+        </div>
+
+        <!-- Part B: Interactive Countdown Timer -->
+        <div class="detail-card countdown-card reveal-on-scroll">
+          <h3 class="gold-sub-title">الوقت المتبقي لليلتنا الكبرى ⏳</h3>
+          <p class="countdown-description">نعد الأيام والساعات لمشاركتكم هذه الفرحة الاستثنائية للعروسين</p>
+          
+          <div class="countdown-timer" id="countdownTimer">
+            <div class="timer-box">
+              <span class="timer-number" id="days">00</span>
+              <span class="timer-label">أيام</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-number" id="hours">00</span>
+              <span class="timer-label">ساعات</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-number" id="minutes">00</span>
+              <span class="timer-label">دقائق</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-number" id="seconds">00</span>
+              <span class="timer-label">ثواني</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part C: Venue & Time Details -->
+        <div class="detail-card event-info-card reveal-on-scroll">
+          <div class="card-gold-leaf-top"></div>
+          <h3 class="gold-sub-title">تفاصيل الحفل البهيج المشترك</h3>
+          <p class="info-intro">تكتمل فرحتنا بوجودكم معنا، ويسعدنا حضوركم وتشريفكم في ليلتنا المنتظرة</p>
+          
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-icon-circle">📅</div>
+              <span class="info-label">التاريخ</span>
+              <strong class="info-value">الجمعة، 16 أكتوبر 2026</strong>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-circle">⏰</div>
+              <span class="info-label">الوقت</span>
+              <strong class="info-value">ابتداءً من الساعة 7:30 مساءً</strong>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-circle">🏰</div>
+              <span class="info-label">المكان</span>
+              <strong class="info-value">قاعة اللؤلؤة الملكية (Royal Pearl Hall)</strong>
+              <span class="info-sub-value">فندق ريجنسي جراند الفاخر</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part D: Interactive Location Map -->
+        <div class="detail-card map-card reveal-on-scroll">
+          <div class="map-icon-header">📍</div>
+          <h3 class="gold-sub-title">موقع الحفل الفاخر</h3>
+          <p class="map-desc">سهلنا لك طريقة الوصول لتنورنا بكل سهولة، انقر على الزر بالأسفل لفتح الموقع في خرائط جوجل مباشرة</p>
+          
+          <div class="map-placeholder-frame">
+            <div class="map-overlay">
+              <span class="map-pin-pulse">📍</span>
+              <span class="map-address-text">قاعة اللؤلؤة الملكية، فندق ريجنسي جراند، القاهرة</span>
+            </div>
+          </div>
+          
+          <a href="https://maps.google.com/?q=Royal+Pearl+Hall+Hotel+Cairo" target="_blank" class="map-button" id="mapButton">
+            <span>عرض موقع القاعة على خرائط Google 🗺️</span>
+          </a>
+        </div>
+
+        <!-- Part E: Wall of Blessings (Spiritual Du'aa Card) -->
+        <div class="detail-card wishes-wall-card reveal-on-scroll">
+          <div class="wish-header-icon">🤲</div>
+          <h3 class="gold-sub-title">أدعية وتبريكات الأهل والأحباب</h3>
+          <p class="wishes-desc">نسأل الله العلي القدير أن يبارك لهما ويكتب لهما حياة زوجية مباركة ملؤها السعادة والسكينة</p>
+          
+          <div class="wishes-wall-grid" id="wishesWallGrid">
+            <!-- Duaa cards will be dynamically injected here -->
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Footer section -->
+      <footer class="wedding-footer">
+        <div class="footer-borders">✦ ✦ ✦</div>
+        <p class="footer-thanks">نسعد بوجودكم ومشاركتكم فرحتنا الغالية 🌹</p>
+        <p class="footer-copyright">زفاف شيرين وبهاء & ألاء وسامي © 2026</p>
+        <p class="developer-tag">بكل حب وعشق 🌹</p>
+        <span id="Elhadad">By Mostafa Elhadad</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
