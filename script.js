@@ -305,7 +305,7 @@ function handleEnvelopeClick(envelopeNum) {
 // ─── Countdown Timer Calculation ─────────────────────────────────────────
 function initCountdown() {
   // Target: Friday, October 16, 2026, 7:30 PM (19:30:00)
-  const weddingDate = new Date("April 20, 2026 19:30:00").getTime();
+  const weddingDate = new Date("October 20, 2026 19:30:00").getTime();
 // if i want to change timer countdown ^
   function updateTimer() {
     const now = new Date().getTime();
