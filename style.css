@@ -44,7 +44,7 @@
 html, body {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden !important; /* CRITICAL: Absolutely prevent horizontal scroll */
+  overflow-x: hidden !important;
   position: relative;
   scroll-behavior: smooth;
 }
@@ -574,7 +574,7 @@ body.locked {
   transition: transform 0.8s ease;
 }
 
-/* ENVELOPE PANELS (Perfect math using variables) */
+/* ENVELOPE PANELS */
 .envelope-back-panel {
   position: absolute;
   inset: 0;
@@ -728,7 +728,7 @@ body.locked {
 .card-content-gold-border::before { top: 6px; right: 6px; }
 .card-content-gold-border::after  { bottom: 6px; left: 6px; }
 
-/* Bismillah calligraphic font styling */
+/* Bismillah calligraphy font styling */
 .bismillah-calligraphy {
   font-family: 'Amiri', serif;
   font-size: clamp(0.85rem, 2vw, 1.05rem);
@@ -861,19 +861,19 @@ body.locked {
 }
 
 /* ==========================================================================
-   MODULAR STATE CLASSES (Opened Envelope Action - Triggered independently)
+   MODULAR STATE CLASSES
    ========================================================================== */
 
 /* 1. Flap Rotates Open */
 .envelope-container.opened .envelope-top-flap {
   transform: rotateX(180deg);
-  z-index: 1; /* Drop behind so card can slide over it */
+  z-index: 1;
 }
 
 /* 2. Card Slides UP */
 .envelope-container.opened .envelope-card-inner {
-  transform: translateY(-58%); /* Slide UP out of the pocket */
-  z-index: 5; /* Slide on top of left, right, and bottom flaps */
+  transform: translateY(-58%);
+  z-index: 5;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--shadow-gold-soft);
 }
 
@@ -888,7 +888,7 @@ body.locked {
   animation: none;
 }
 
-/* 5. Reveal scroll hint & remove tap indicator (controlled via parent section tags) */
+/* 5. Reveal scroll hint & remove tap indicator */
 .hero-envelope-section.at-least-one-opened #tapIndicator {
   opacity: 0;
   pointer-events: none;
@@ -905,7 +905,7 @@ body.locked {
    ========================================================================== */
 .wedding-details-section {
   width: 100%;
-  padding: 85px 20px; /* Spacious vertical separation */
+  padding: 85px 20px;
   position: relative;
   z-index: 2;
   display: none;
@@ -921,7 +921,7 @@ body.locked {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 50px; /* Breathe room */
+  gap: 50px;
 }
 
 /* Elegant Cards styling */
@@ -1259,13 +1259,14 @@ body.locked {
 }
 
 /* ==========================================================================
-   FOOTER SECTION
+   FOOTER SECTION & #Elhadad ORIGINAL DESIGN (PC View)
    ========================================================================== */
 .wedding-footer {
   text-align: center;
   padding: 40px 0 20px;
   border-top: 1px solid rgba(223, 192, 126, 0.15);
   margin-top: 30px;
+  position: relative;
 }
 
 .footer-borders {
@@ -1296,6 +1297,17 @@ body.locked {
   opacity: 0.6;
 }
 
+/* كود المطور الأصلي الخاص بك (اللون الغامق والخلفية ومكانه) */
+#Elhadad {
+  font-size: 14px;
+  position: relative;
+  left: 45%;
+  top: 70px;
+  font-family: "Pacifico", cursive;
+  color: rgba(49, 13, 13, 0.05); /* غامق جداً متوافق مع الخلفية */
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+
 /* ==========================================================================
    HIGH-END ENTRANCE ANIMATIONS (Staggered Reveals)
    ========================================================================== */
@@ -1308,14 +1320,12 @@ body.locked {
               filter 1.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Add active class to start animating staggeredly */
 body.curtain-opened .animate-on-start {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
 
-/* Stagger delay definitions */
 body.curtain-opened #introText {
   transition-delay: 0.3s;
 }
@@ -1328,7 +1338,6 @@ body.curtain-opened .delay-env-2 {
   transition-delay: 0.95s;
 }
 
-/* Gold divider animation in welcome curtain */
 .curtain-divider {
   width: 0;
   height: 1px;
@@ -1342,7 +1351,7 @@ body.curtain-opened .delay-env-2 {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Media Queries for Perfect Mobile Fit & No Horizontal Scroll)
+   RESPONSIVE DESIGN (Media Queries)
    ========================================================================== */
 @media (max-width: 900px) {
   .envelopes-wrapper {
@@ -1365,7 +1374,7 @@ body.curtain-opened .delay-env-2 {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 45px; /* Reduced vertical gap since envelopes stack vertically */
+    margin-top: 135px;
   }
 
   .envelope-column {
@@ -1385,6 +1394,22 @@ body.curtain-opened .delay-env-2 {
   .curtain-couples {
     flex-direction: column;
     gap: 5px;
+  }
+
+  /* 🛠️ التعديل المطلوب لـ #Elhadad في الموبايل ليكون متطابق تماماً مع الـ PC 🛠️ */
+  #Elhadad {
+    /* وضعه في منتصف الشاشة تماماً بشكل تلقائي */
+    left: 0 !important;
+    top: 40px !important;
+    text-align: Start !important;
+    display: block !important;
+    width: 100% !important;
+    
+    /* الحفاظ على نفس اللون الخافت والغامق تماماً بدون أي تغيير ذهبي */
+    color: rgba(255, 255, 255, 0.05) !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.05) !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4) !important;
   }
 }
 
@@ -1434,10 +1459,6 @@ body.curtain-opened .delay-env-2 {
     --env-w: 220px;
     --env-h: 150px;
   }
-  
-  .couple-names-gold {
-    font-size: 1.15rem;
-  }
 }
 
 /* ==========================================================================
@@ -1456,7 +1477,6 @@ body.curtain-opened .delay-env-2 {
   border-radius: 10px;
 }
 
-/* Active Wish/Sparkle dynamic entities */
 .sparkle {
   position: fixed;
   pointer-events: none;
@@ -1512,7 +1532,6 @@ body.curtain-opened .delay-env-2 {
   50%       { text-shadow: 0 0 35px rgba(223,192,126,0.85), 0 4px 12px rgba(0,0,0,0.4); }
 }
 
-/* Pointer hint ONLY after wedding (past-mode) */
 .countdown-card.past-mode {
   cursor: pointer;
 }
@@ -1533,13 +1552,4 @@ body.curtain-opened .delay-env-2 {
 
 .countdown-card.past-mode:hover::after {
   color: rgba(223, 192, 126, 0.72);
-}
-
-#Elhadad{
-  font-size: 12px;
-  position: relative;
-  top: 70px;
-  left: 45%;
-  font-family: "Pacifico", cursive;
-  color:#280811
 }
