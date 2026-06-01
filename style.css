@@ -1304,7 +1304,7 @@ body.locked {
   left: 45%;
   top: 70px;
   font-family: "Pacifico", cursive;
-  color: rgba(49, 13, 13, 0.05); /* غامق جداً متوافق مع الخلفية */
+  color: #20070e; /* غامق جداً متوافق مع الخلفية */
   text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 
