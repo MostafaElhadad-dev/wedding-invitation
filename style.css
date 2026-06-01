@@ -5,8 +5,6 @@
 /* --- Import Fonts (Backup in case HTML tags fail) --- */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Reem+Kufi:wght@400;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 /* --- Reset & Base Variables --- */
 *, *::before, *::after {
   margin: 0;
@@ -1470,6 +1468,71 @@ body.curtain-opened .delay-env-2 {
 @keyframes sparkleAnim {
   0%   { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
   100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.2) rotate(180deg); }
+}
+
+/* ==========================================================================
+   CELEBRATE OVERLAY (Countdown click message)
+   ========================================================================== */
+#celebrateOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 20;
+  background: rgba(23, 3, 8, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(14px) scale(0.97);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+#celebrateOverlay.celebrate-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.celebrate-text {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1.1rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  text-align: center;
+  line-height: 1.8;
+  text-shadow: 0 0 20px rgba(223, 192, 126, 0.6), 0 2px 6px rgba(0,0,0,0.6);
+  animation: celebrateGlow 2s infinite ease-in-out;
+}
+
+@keyframes celebrateGlow {
+  0%, 100% { text-shadow: 0 0 15px rgba(223,192,126,0.45), 0 2px 6px rgba(0,0,0,0.5); }
+  50%       { text-shadow: 0 0 35px rgba(223,192,126,0.85), 0 4px 12px rgba(0,0,0,0.4); }
+}
+
+/* Pointer hint ONLY after wedding (past-mode) */
+.countdown-card.past-mode {
+  cursor: pointer;
+}
+
+.countdown-card.past-mode::after {
+  content: '👆 انقر لتهانينا';
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: rgba(223, 192, 126, 0.38);
+  letter-spacing: 1px;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.countdown-card.past-mode:hover::after {
+  color: rgba(223, 192, 126, 0.72);
 }
 
 #Elhadad{

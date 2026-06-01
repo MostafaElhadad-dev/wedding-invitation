@@ -303,34 +303,104 @@ function handleEnvelopeClick(envelopeNum) {
 }
 
 // ─── Countdown Timer Calculation ─────────────────────────────────────────
+const CELEBRATE_MESSAGES = [
+  "✨ لقد بدأت البهجة الحقيقية! ✨",
+  "💍 يا رب دوّم فرحتهم وأدم سعادتهم 💍",
+  "🌹 الحب الحقيقي لا ينتهي بعد الحفلة بل يبدأ من هناك 🌹",
+  "💫 ألف مبروك.. ربنا يكتب لهم حياة تملؤها الأنوار 💫",
+  "👑 بدأت الليلة وبقي الحب للأبد 👑",
+  "🌸 اللهم اجعل زواجهم بداية لكل خير ونعمة 🌸",
+];
+let celebrateMsgIndex = 0;
+let isShowingMessage  = false;
+let celebrateTimeout  = null;
+let clickListenerAdded = false;   // ← guard: add click only once after wedding
+
 function initCountdown() {
-  // Target: Friday, October 16, 2026, 7:30 PM (19:30:00)
-  const weddingDate = new Date("October 20, 2026 19:30:00").getTime();
-// if i want to change timer countdown ^
-  function updateTimer() {
-    const now = new Date().getTime();
+  const weddingDate   = new Date("October 16, 2026 19:30:00").getTime();
+  const countdownCard = document.querySelector('.countdown-card');
+
+  // ── Helper: activate past-mode on the card once ──────────────────────────
+  function activatePastMode() {
+    if (clickListenerAdded) return;
+    clickListenerAdded = true;
+
+    // Update heading & description text
+    const heading = document.querySelector('.countdown-card .gold-sub-title');
+    if (heading) heading.textContent = 'عدى على الفرح السعيد 🎊';
+
+    const desc = document.querySelector('.countdown-description');
+    if (desc) desc.textContent = 'كل يوم يمر يزيد الحب ويترسّخ الوفاق بإذن الله';
+
+    // Update timer labels to past language
+    const labels   = countdownTimer.querySelectorAll('.timer-label');
+    const pastLbls = ['يوم', 'ساعة', 'دقيقة', 'ثانية'];
+    labels.forEach((lbl, i) => lbl.textContent = pastLbls[i]);
+
+    // Enable click only NOW (after wedding)
+    if (countdownCard) {
+      countdownCard.classList.add('past-mode');   // CSS handles cursor + hint
+      countdownCard.addEventListener('click', onCountdownClick);
+    }
+  }
+
+  // ── Click handler (registered only after wedding) ────────────────────────
+  function onCountdownClick(e) {
+    createSparkles(e.clientX, e.clientY);
+
+    if (isShowingMessage) {
+      clearTimeout(celebrateTimeout);
+      hideCelebrateMsg(countdownCard);
+    } else {
+      showCelebrateMsg(countdownCard);
+    }
+  }
+
+  // ── Tick function ─────────────────────────────────────────────────────────
+  function tick() {
+    const now      = new Date().getTime();
     const distance = weddingDate - now;
 
     if (distance < 0) {
-      clearInterval(timerInterval);
-      countdownTimer.innerHTML = "<div class='gold-sub-title' style='width:100%;grid-column:1/-1;'>💍 لقد بدأت الليلة البهيجة! 💍</div>";
-      return;
+      // Past: count UP (elapsed since wedding)
+      const elapsed = Math.abs(distance);
+      document.getElementById('days').textContent    = Math.floor(elapsed / 86400000).toString().padStart(2, '0');
+      document.getElementById('hours').textContent   = Math.floor((elapsed % 86400000) / 3600000).toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = Math.floor((elapsed % 3600000) / 60000).toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = Math.floor((elapsed % 60000) / 1000).toString().padStart(2, '0');
+      activatePastMode();   // idempotent — runs once
+    } else {
+      // Future: count DOWN
+      document.getElementById('days').textContent    = Math.floor(distance / 86400000).toString().padStart(2, '0');
+      document.getElementById('hours').textContent   = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
     }
-
-    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Inject values with padding zero
-    document.getElementById('days').textContent    = d.toString().padStart(2, '0');
-    document.getElementById('hours').textContent   = h.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
   }
 
-  updateTimer(); // run once immediately
-  const timerInterval = setInterval(updateTimer, 1000);
+  tick();
+  setInterval(tick, 1000);
+}
+
+function showCelebrateMsg(card) {
+  isShowingMessage = true;
+  const msg = CELEBRATE_MESSAGES[celebrateMsgIndex % CELEBRATE_MESSAGES.length];
+  celebrateMsgIndex++;
+
+  const overlay = document.createElement('div');
+  overlay.id    = 'celebrateOverlay';
+  overlay.innerHTML = `<div class="celebrate-text">${msg}</div>`;
+  card.appendChild(overlay);
+
+  requestAnimationFrame(() => overlay.classList.add('celebrate-visible'));
+  celebrateTimeout = setTimeout(() => hideCelebrateMsg(card), 3500);
+}
+
+function hideCelebrateMsg(card) {
+  const overlay = document.getElementById('celebrateOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('celebrate-visible');
+  setTimeout(() => { overlay.remove(); isShowingMessage = false; }, 500);
 }
 
 // ─── Scroll Reveal Animation (Intersection Observer) ──────────────────────
