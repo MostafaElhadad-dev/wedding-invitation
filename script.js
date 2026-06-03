@@ -317,7 +317,7 @@ let celebrateTimeout  = null;
 let clickListenerAdded = false;   // ← guard: add click only once after wedding
 
 function initCountdown() {
-  const weddingDate   = new Date("October 16, 2026 19:30:00").getTime();
+  const weddingDate   = new Date("August 7, 2026 20:15:00").getTime();
   const countdownCard = document.querySelector('.countdown-card');
 
   // ── Helper: activate past-mode on the card once ──────────────────────────
@@ -392,7 +392,7 @@ function showCelebrateMsg(card) {
   overlay.innerHTML = `<div class="celebrate-text">${msg}</div>`;
   card.appendChild(overlay);
 
-  requestAnimationFrame(() => overlay.classList.add('celebrate-visible'));
+  requestAnimationFrame(() => overlay.classList.add('celebrate-visible'));  
   celebrateTimeout = setTimeout(() => hideCelebrateMsg(card), 3500);
 }
 
